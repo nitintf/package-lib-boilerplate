@@ -1,0 +1,33 @@
+{
+  "name": "@fab-ui/core",
+  "version": "1.0.0",
+  "description": "Fabulous UI core",
+  "keywords": [
+    "core"
+  ],
+  "author": "Nitin <nitinpanwar0802@gmail.com>",
+  "homepage": "https://github.com/chakra-ui/chakra-ui#readme",
+  "license": "MIT",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakra-ui/chakra-ui.git",
+    "directory": "packages/core"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format=esm,cjs --dts",
+    "dev": "pnpm build -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src/index.ts --format=esm,cjs"
+  }
+}
