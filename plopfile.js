@@ -21,18 +21,18 @@ module.exports = function main(plop) {
     prompts: [
       {
         type: "input",
-        name: "componentName",
-        message: "Enter component name:",
+        name: "packageName",
+        message: "Enter package name:",
       },
       {
         type: "input",
         name: "description",
-        message: "The description of this component:",
+        message: "The description of this package:",
       },
       {
         type: "list",
         name: "outDir",
-        message: "where should this component or package live?",
+        message: "where should this package live?",
         default: "packages",
         choices: workspaces,
       },
@@ -42,14 +42,14 @@ module.exports = function main(plop) {
 
       if (!answers) return actions
 
-      const { componentName, description } = answers
+      const { packageName, description } = answers
 
       actions.push({
         type: "addMany",
-        templateFiles: "plop/component/**",
-        destination: `./{{outDir}}/{{dashCase componentName}}`,
-        base: "plop/component",
-        data: { description, componentName },
+        templateFiles: "plop/package/**",
+        destination: `./{{outDir}}/{{dashCase packageName}}`,
+        base: "plop/package",
+        data: { description, packageName },
         abortOnFail: true,
       })
 
